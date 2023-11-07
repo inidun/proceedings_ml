@@ -1,0 +1,16 @@
+{
+  "labels":[
+    "PARAGRAPH_NUMBER",
+    "HEADER",
+    "TITLE",
+    "NAME",
+    "COUNTRY",
+    "ROLE",
+    "TRANSLATED_NOTE"
+  ],
+  "spans_key":"sc",
+  "threshold":0.5,
+  "max_positive":null,
+  "negative_weight":null,
+  "allow_overlap":true
+}

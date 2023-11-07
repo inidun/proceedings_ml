@@ -1,0 +1,1 @@
+{"label": "PARAGRAPH_NUMBER", "pattern": [{"IS_SENT_START": true, "LIKE_NUM": true, "OP": "*", "IS_ALPHA": false}]}

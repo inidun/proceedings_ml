@@ -1,0 +1,7 @@
+{
+    "custom_theme": {"cardMaxWidth": "75%", "smallText": 16},
+    "show_flag": true,
+    "instructions": "instructions.html",
+    "allow_newline_highlight": true,
+    "hide_newlines": false
+}
