@@ -27,7 +27,7 @@ def test_ner_entities_using_en_core_web_lg_are_as_expected():
 
 @pytest.mark.skip(reason="not applicable")
 def test_spans_using_model_best_are_as_expected():
-    nlp = spacy.load("models/model-best")
+    nlp = spacy.load("training/model-best")
     text = "M. Camille HUYSMANS (Belgium) (Chairman of the Credentials Committee) (Translation):"
 
     doc = nlp(text)

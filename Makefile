@@ -6,6 +6,7 @@ NLP := "en_core_web_lg"
 DATASET := "proceedings_spans"
 WORKDIR := $(shell pwd)/data/proceedings
 MODELDIR := $(shell pwd)/models
+TRAINDIR := $(shell pwd)/training
 SOURCE := $(WORKDIR)/proceedings.jsonl
 PATTERN_FILE := $(WORKDIR)/patterns.jsonl
 LABELS := "NAME,HEADER,PARAGRAPH_NUMBER,ROLE,TITLE,COUNTRY,TRANSLATED_NOTE"
@@ -45,8 +46,11 @@ export_annotations:
 	@( cd $(WORKDIR); poetry run prodigy db-out $(DATASET) > $(WORKDIR)/$(DATASET)_annotations.jsonl )
 .PHONY: export_annotations
 
-train_spancat:
-	@( cd $(WORKDIR); poetry run prodigy train $(MODELDIR) --spancat $(DATASET) --eval-split 0.2 --lang en --label-stats )
+training_dir:
+	@mkdir -p $(TRAINDIR)
+
+train_spancat: training_dir
+	@( cd $(WORKDIR); poetry run prodigy train $(TRAINDIR) --spancat $(DATASET) --eval-split 0.2 --lang en --label-stats )
 .PHONY: train_spancat
 
 prodigy_help:
