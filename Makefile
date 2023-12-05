@@ -34,6 +34,10 @@ isort:
 tidy: isort black
 .PHONY: tidy
 
+pylint:
+	@poetry run pylint $(SOURCE_FOLDERS)
+.PHONY: pylint
+
 test:
 	@pytest tests
 .PHONY: test
