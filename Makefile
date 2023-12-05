@@ -19,17 +19,13 @@ clean:
 	@rm -rf tests/output
 .PHONY: clean
 
-mypy:
-	@poetry run mypy $(SOURCE_FOLDERS)
-.PHONY: mypy
-
-black:
-	@poetry run black $(SOURCE_FOLDERS)
-.PHONY: black
-
 isort:
 	@poetry run isort $(SOURCE_FOLDERS)
 .PHONY: isort
+
+black:
+	@poetry run black $(SOURCE_FOLDERS) -q
+.PHONY: black
 
 tidy: isort black
 .PHONY: tidy
@@ -37,6 +33,20 @@ tidy: isort black
 pylint:
 	@poetry run pylint $(SOURCE_FOLDERS)
 .PHONY: pylint
+
+notes:
+	@poetry run pylint --notes=FIXME,XXX,TODO --disable=all --enable=W0511 -f colorized $(SOURCE_FOLDERS)
+.PHONY: notes
+
+mypy:
+	@poetry run mypy $(SOURCE_FOLDERS)
+.PHONY: mypy
+
+lint: tidy pylint
+.PHONY: lint
+
+typing: lint mypy
+.PHONY: typing
 
 test:
 	@pytest tests
