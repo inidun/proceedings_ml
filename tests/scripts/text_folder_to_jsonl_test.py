@@ -1,3 +1,4 @@
+# pylint: disable=redefined-outer-name
 import pytest
 import typer
 from typer.testing import CliRunner
@@ -5,7 +6,7 @@ from typer.testing import CliRunner
 from proceedings_ml.scripts.text_folder_to_jsonl import create_jsonl_from_folder
 
 
-@pytest.fixture
+@pytest.fixture()
 def tmp_folder(tmp_path):
     tmp_folder = tmp_path / "text_folder"
     tmp_folder.mkdir()
