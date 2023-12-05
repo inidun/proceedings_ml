@@ -23,9 +23,16 @@ mypy:
 	@poetry run mypy $(SOURCE_FOLDERS)
 .PHONY: mypy
 
+black:
+	@poetry run black $(SOURCE_FOLDERS)
+.PHONY: black
+
 isort:
 	@poetry run isort $(SOURCE_FOLDERS)
 .PHONY: isort
+
+tidy: isort black
+.PHONY: tidy
 
 test:
 	@pytest tests
