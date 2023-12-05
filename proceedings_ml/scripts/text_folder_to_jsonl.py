@@ -23,5 +23,6 @@ def create_jsonl_from_folder(folder_path: str, output_file: str) -> None:
                     content = file.read()
                     writer.write({'text': content, 'meta': {'file_name': file_name}})
 
+
 if __name__ == "__main__":
     typer.run(create_jsonl_from_folder)

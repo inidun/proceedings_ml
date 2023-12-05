@@ -70,9 +70,7 @@ def evaluate(model: str | Path, validation_data: str | Path) -> tuple[float, flo
 
 
 # FIXME: Remove this function and make evaluate() more generic instead
-def evaluate_span(
-    model: str | Path, validation_data: str | Path, label: str
-) -> tuple[float, float, float]:
+def evaluate_span(model: str | Path, validation_data: str | Path, label: str) -> tuple[float, float, float]:
     """Evaluate a model on a validation set. Returns the precision, recall, and F1-score for spans with label `label`.
 
     - Precision: The fraction of true positive spans (correctly predicted) out of all predicted spans.
