@@ -24,7 +24,7 @@ isort:
 .PHONY: isort
 
 black:
-	@poetry run black $(SOURCE_FOLDERS) -q
+	@poetry run black -q $(SOURCE_FOLDERS)
 .PHONY: black
 
 tidy: isort black
@@ -39,7 +39,7 @@ notes:
 .PHONY: notes
 
 mypy:
-	@poetry run mypy $(SOURCE_FOLDERS)
+	@poetry run mypy --no-error-summary $(SOURCE_FOLDERS) 
 .PHONY: mypy
 
 lint: tidy pylint
