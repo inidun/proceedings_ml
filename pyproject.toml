@@ -7,18 +7,19 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
-prodigy = {path = "lib/prodigy-1.14.5-cp311-cp311-linux_x86_64.whl"}
 jsonlines = "^4.0.0"
-typer = "^0.9.0"
 pandas = "^2.1.2"
+prodigy = {path = "lib/prodigy-1.14.5-cp311-cp311-linux_x86_64.whl"}
+typer = "^0.9.0"
 
 
 [tool.poetry.group.dev.dependencies]
+black = {extras = ["jupyter"], version = "^23.11.0"}
 ipykernel = "^6.26.0"
 isort = "^5.12.0"
 mypy = "^1.6.1"
-black = {extras = ["jupyter"], version = "^23.11.0"}
 pylint = "^3.0.2"
+pytest = "^7.4.3"
 
 [build-system]
 requires = ["poetry-core"]
@@ -92,3 +93,11 @@ never-returning-functions = ["sys.exit", "argparse.parse_error"]
 [tool.pylint.reports]
 output-format = "colorized"
 score = false
+
+[tool.pytest.ini_options]
+log_cli = "False"
+testpaths = [
+    "tests",
+]
+python_files = "*_test.py"
+python_functions = "test_*"
