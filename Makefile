@@ -49,7 +49,7 @@ typing: lint mypy
 .PHONY: typing
 
 test:
-	@pytest tests
+	@poetry run pytest tests
 .PHONY: test
 
 spacy-model:
