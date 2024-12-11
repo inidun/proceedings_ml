@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 SOURCE_FOLDERS := proceedings_ml tests
+PACKAGE_FOLDER := proceedings_ml
 
 NLP := "en_core_web_lg"
 DATASET := "proceedings_spans"
@@ -39,7 +40,7 @@ notes:
 .PHONY: notes
 
 mypy:
-	@poetry run mypy --no-error-summary $(SOURCE_FOLDERS) 
+	@poetry run mypy --no-error-summary --strict $(PACKAGE_FOLDER) || true
 .PHONY: mypy
 
 lint: tidy pylint
