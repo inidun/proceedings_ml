@@ -2,7 +2,7 @@ import pytest
 import spacy
 
 
-def get_entities_with_pos(text, nlp):
+def get_entities_with_pos(text: str, nlp: spacy.language.Language) -> list[tuple[str, str, int, int]]:
     doc = nlp(text)
     entities = []
     for ent in doc.ents:
